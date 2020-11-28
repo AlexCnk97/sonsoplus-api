@@ -18,4 +18,10 @@ app.set('view engine', 'ejs')
 app.use('/api/users',userRoutes);
 
 
+//home route
+app.use('/', (req, res)=>{
+    res.render("index")
+})
+
+
 export default app;
