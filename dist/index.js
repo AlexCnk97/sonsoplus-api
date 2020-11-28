@@ -5,7 +5,7 @@ var _app = _interopRequireDefault(require("./app"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 async function main() {
-  await _app.default.listen(4000);
+  await _app.default.listen(process.env.PORT || 3000);
 }
 
 main();
