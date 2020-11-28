@@ -2,6 +2,7 @@ import express, {json} from 'express';
 import morgan from 'morgan'
 import path from 'path'
 //Routes
+import mainRoutes from './routes/index'
 import userRoutes from './routes/users';
 
 
@@ -19,9 +20,7 @@ app.use('/api/users',userRoutes);
 
 
 //home route
-app.use('/', (req, res)=>{
-    res.render("index")
-})
+app.use(mainRoutes)
 
 
 export default app;

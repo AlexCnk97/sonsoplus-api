@@ -11,6 +11,8 @@ var _morgan = _interopRequireDefault(require("morgan"));
 
 var _path = _interopRequireDefault(require("path"));
 
+var _index = _interopRequireDefault(require("./routes/index"));
+
 var _users = _interopRequireDefault(require("./routes/users"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29,8 +31,6 @@ app.set('views', _path.default.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use('/api/users', _users.default); //home route
 
-app.use('/', (req, res) => {
-  res.render("index");
-});
+app.use(_index.default);
 var _default = app;
 exports.default = _default;
