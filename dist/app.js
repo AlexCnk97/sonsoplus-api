@@ -9,6 +9,8 @@ var _express = _interopRequireWildcard(require("express"));
 
 var _morgan = _interopRequireDefault(require("morgan"));
 
+var _path = _interopRequireDefault(require("path"));
+
 var _users = _interopRequireDefault(require("./routes/users"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -21,7 +23,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 const app = (0, _express.default)(); //middlewares
 
 app.use((0, _morgan.default)('dev'));
-app.use((0, _express.json)());
-app.use('/api/users', _users.default);
+app.use((0, _express.json)()); //settings
+
+app.set('views', _path.default.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use('/api/users', _users.default); //home route
+
+app.use('/', (req, res) => {
+  res.render("index");
+});
 var _default = app;
 exports.default = _default;
