@@ -8,19 +8,20 @@ import userRoutes from './routes/users';
 
 const app = express();
 
+//settings
+app.set('views', './src/views');
+app.set('view engine', 'ejs')
+
 //middlewares
 app.use(morgan('dev'));
 app.use(json());
 
-//settings
-app.set('views' , path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
 
 app.use('/api/users',userRoutes);
 
 
 //home route
-app.use(mainRoutes)
+app.use('/', mainRoutes)
 
 
 export default app;
